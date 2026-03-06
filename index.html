@@ -1,226 +1,442 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chicken Nugget Shack – Guest Wi-Fi Terms</title>
+  <meta name="theme-color" content="#0f1115" />
+  <style>
+    :root{
+      --bg:#0f1115;
+      --card:#171a21;
+      --text:#f4f5f7;
+      --muted:#a7b0c0;
+      --accent:#ffb300;
+      --accent2:#ff7a18;
+      --good:#34c759;
+      --border:rgba(255,255,255,.10);
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius:18px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+    }
 
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Chicken Nugget Shack WiFi</title>
+    * { box-sizing: border-box; }
 
-<style>
+    body{
+      margin:0;
+      font-family:var(--sans);
+      background:
+        radial-gradient(900px 600px at 20% 0%, rgba(255,179,0,.18), transparent 60%),
+        radial-gradient(900px 600px at 80% 10%, rgba(255,122,24,.16), transparent 60%),
+        linear-gradient(180deg, #0b0d12, var(--bg));
+      color:var(--text);
+      min-height:100vh;
+      padding:26px 14px 40px;
+    }
 
-body{
-font-family:Arial, Helvetica, sans-serif;
-background:#0f1115;
-color:white;
-margin:0;
-padding:30px;
-}
+    .wrap{
+      max-width:860px;
+      margin:0 auto;
+    }
 
-.container{
-max-width:800px;
-margin:auto;
-}
+    .hero{
+      text-align:center;
+      margin:8px 0 16px;
+    }
 
-h1{
-text-align:center;
-font-size:36px;
-}
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 14px;
+      border:1px solid var(--border);
+      border-radius:999px;
+      background:rgba(255,255,255,.04);
+      box-shadow:var(--shadow);
+      font-weight:700;
+    }
 
-.card{
-background:#171a21;
-padding:20px;
-border-radius:15px;
-margin-bottom:20px;
-}
+    .dot{
+      width:10px;
+      height:10px;
+      border-radius:99px;
+      background:var(--good);
+      box-shadow:0 0 0 6px rgba(52,199,89,.12);
+    }
 
-button{
-padding:14px;
-font-size:16px;
-border:none;
-border-radius:10px;
-cursor:pointer;
-width:100%;
-margin-top:10px;
-}
+    h1{
+      font-size:clamp(26px, 4vw, 42px);
+      margin:14px 0 8px;
+      letter-spacing:-.02em;
+    }
 
-.primary{
-background:#ffb300;
-color:black;
-font-weight:bold;
-}
+    .sub{
+      color:var(--muted);
+      margin:0 auto;
+      max-width:64ch;
+      font-size:15px;
+      line-height:1.5;
+    }
 
-.secondary{
-background:#333;
-color:white;
-}
+    .grid{
+      display:grid;
+      gap:14px;
+      grid-template-columns:1fr;
+      margin-top:18px;
+    }
 
-.qr{
-width:240px;
-background:white;
-padding:10px;
-border-radius:15px;
-}
+    @media(min-width:900px){
+      .grid{
+        grid-template-columns:1.25fr .75fr;
+      }
+    }
 
-.qrLink{
-display:inline-block;
-}
+    .card{
+      background:rgba(255,255,255,.04);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:18px 16px;
+      backdrop-filter:blur(10px);
+    }
 
-.hidden{
-display:none;
-}
+    .card h2{
+      margin:0 0 10px;
+      font-size:18px;
+    }
 
-.help{
-font-size:13px;
-color:#bbb;
-margin-top:12px;
-text-align:center;
-line-height:1.4;
-}
+    ol{
+      margin:0;
+      padding-left:18px;
+    }
 
-.password{
-font-family:monospace;
-background:#222;
-padding:10px;
-border-radius:8px;
-margin-top:10px;
-}
+    li{
+      margin:10px 0;
+      line-height:1.45;
+    }
 
-</style>
+    li span{
+      color:var(--muted);
+    }
 
+    .fineprint{
+      margin-top:14px;
+      padding:12px;
+      border-radius:14px;
+      border:1px dashed rgba(255,255,255,.18);
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.45;
+    }
+
+    .controls{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      margin-top:14px;
+    }
+
+    .checkrow{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      padding:12px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background:rgba(0,0,0,.18);
+    }
+
+    .checkrow input{
+      margin-top:3px;
+      transform:scale(1.2);
+    }
+
+    .checkrow label{
+      font-size:14px;
+      line-height:1.35;
+    }
+
+    .checkrow small{
+      color:var(--muted);
+      display:block;
+      margin-top:4px;
+    }
+
+    .btn{
+      width:100%;
+      border:0;
+      border-radius:16px;
+      padding:14px 16px;
+      font-weight:900;
+      font-size:16px;
+      cursor:pointer;
+      transition:transform .06s ease, opacity .2s ease;
+    }
+
+    .btn:active{
+      transform:translateY(1px);
+    }
+
+    .primary{
+      background:linear-gradient(135deg, var(--accent), var(--accent2));
+      color:#111;
+    }
+
+    .secondary{
+      background:rgba(255,255,255,.06);
+      border:1px solid var(--border);
+      color:var(--text);
+    }
+
+    .btn[disabled]{
+      opacity:.45;
+      cursor:not-allowed;
+      transform:none;
+    }
+
+    .wifiBox{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      padding:14px;
+      border-radius:16px;
+      border:1px solid var(--border);
+      background:rgba(0,0,0,.18);
+    }
+
+    .kv{
+      display:grid;
+      grid-template-columns:95px 1fr;
+      gap:8px 10px;
+      font-size:14px;
+    }
+
+    .k{
+      color:var(--muted);
+    }
+
+    .v{
+      font-family:var(--mono);
+      word-break:break-all;
+      padding:8px 10px;
+      border-radius:12px;
+      background:rgba(255,255,255,.06);
+      border:1px solid var(--border);
+    }
+
+    .hidden{
+      display:none;
+    }
+
+    .qrwrap{
+      text-align:center;
+      margin-top:12px;
+    }
+
+    .wifiQR{
+      width:240px;
+      max-width:100%;
+      border-radius:18px;
+      background:#fff;
+      padding:10px;
+      box-shadow:0 6px 20px rgba(0,0,0,.25);
+    }
+
+    .pill{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      color:var(--muted);
+      font-size:12px;
+      margin:8px 0 10px;
+    }
+
+    .toast{
+      position:fixed;
+      left:50%;
+      transform:translateX(-50%);
+      bottom:18px;
+      background:rgba(0,0,0,.75);
+      border:1px solid rgba(255,255,255,.18);
+      color:var(--text);
+      padding:10px 12px;
+      border-radius:999px;
+      font-size:13px;
+      opacity:0;
+      pointer-events:none;
+      transition:opacity .2s ease, transform .2s ease;
+      max-width:92vw;
+      text-align:center;
+    }
+
+    .toast.show{
+      opacity:1;
+      transform:translateX(-50%) translateY(-4px);
+    }
+
+    .footer{
+      margin-top:12px;
+      text-align:center;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.4;
+    }
+  </style>
 </head>
 
 <body>
+  <div class="wrap">
+    <div class="hero">
+      <div class="badge"><span class="dot"></span> Guest Wi-Fi Access Portal</div>
+      <h1>🍗 Chicken Nugget Shack Wi-Fi</h1>
+      <p class="sub">
+        Before you can use our internet, you must agree to these extremely serious terms.
+        Tap <b>Accept</b> to reveal the Wi-Fi details and connection QR code.
+      </p>
+    </div>
 
-<div class="container">
+    <div class="grid">
+      <div class="card">
+        <h2>📜 Guest Wifi Terms & Conditions</h2>
+        <ol>
+          <li><b>Do not judge the playlist.</b> <span>Yes, there may be 2000s bangers. No, there will be no apology.</span></li>
+          <li><b>Compliment clause.</b> <span>You must say one nice thing about the house, snacks, or Frankie's Nook.</span></li>
+          <li><b>Dad jokes may occur.</b> <span>By connecting you consent to at least one pun during your visit.</span></li>
+          <li><b>If you break the Wi-Fi</b> <span>you must fix it by turning it off and on again while looking confident.</span></li>
+          <li><b>Pet policy.</b> <span>Any pet you see must be told they are “a very good pet”.</span></li>
+        </ol>
 
-<h1>🍗 Chicken Nugget Shack WiFi</h1>
+        <div class="fineprint">
+          <b>Fine print:</b> Asking “what’s the Wi-Fi password?” after scanning this page may result in eye-rolling,
+          suspicious staring, and reduced access to premium snacks.
+        </div>
 
-<div class="card">
+        <div class="controls">
+          <div class="checkrow">
+            <input id="agree" type="checkbox" />
+            <label for="agree">
+              I agree to the Guest Wi-Fi Terms.
+              <small>I understand the host may deploy jokes without warning.</small>
+            </label>
+          </div>
 
-<h3>Terms & Conditions</h3>
+          <div class="checkrow">
+            <input id="robot" type="checkbox" />
+            <label for="robot">
+              I am a robot 🤖
+              <small>Ticking this will not improve your Wi-Fi speed. It will make us suspicious.</small>
+            </label>
+          </div>
 
-<ol>
+          <button id="acceptBtn" class="btn primary" disabled>✅ Accept & Reveal Wi-Fi Access</button>
+          <button id="declineBtn" class="btn secondary">❌ Decline (Use Mobile Data Like a Peasant)</button>
+        </div>
+      </div>
 
-<li>No crimes.</li>
+      <div class="card">
+        <h2>📶 Connect</h2>
+        <div class="wifiBox">
+          <div class="kv">
+            <div class="k">Network</div>
+            <div class="v">ChickenNuggetShack</div>
 
-<li>Do not judge the playlist.</li>
+            <div class="k">Security</div>
+            <div class="v">WPA2</div>
 
-<li>Compliment the snacks or the router.</li>
+            <div class="k">Password</div>
+            <div class="v" id="passText">••••••••••••</div>
+          </div>
 
-<li>Dad jokes may occur without warning.</li>
+          <div id="revealArea" class="hidden">
+            <button id="copyBtn" class="btn secondary">📋 Copy Password</button>
 
-<li>If the WiFi breaks you must confidently turn it off and on again.</li>
+            <div class="qrwrap">
+              <div class="pill">📱 Scan this QR to join the Wi-Fi</div>
+              <img
+                id="wifiQR"
+                class="wifiQR"
+                src="wifi-qr.png"
+                alt="Chicken Nugget Shack Wi-Fi QR code"
+              />
+            </div>
 
-<li>Any pets encountered must be told they are a "very good pet".</li>
+            <div class="footer">
+              On most phones, scan the QR code above and then tap <b>Join</b>.<br>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-</ol>
+  <div class="toast" id="toast"></div>
 
-<label>
-<input type="checkbox" id="agree">
- I agree to the Nugget Terms
-</label>
+  <script>
+    const WIFI_PASSWORD = "3.141592653589";
 
-<button id="acceptBtn" class="primary" disabled>
-Accept & Connect
-</button>
+    const agree = document.getElementById("agree");
+    const robot = document.getElementById("robot");
+    const acceptBtn = document.getElementById("acceptBtn");
+    const declineBtn = document.getElementById("declineBtn");
+    const passText = document.getElementById("passText");
+    const revealArea = document.getElementById("revealArea");
+    const copyBtn = document.getElementById("copyBtn");
+    const toast = document.getElementById("toast");
 
-<button class="secondary" onclick="decline()">
-Decline
-</button>
+    function showToast(msg) {
+      toast.textContent = msg;
+      toast.classList.add("show");
+      setTimeout(() => toast.classList.remove("show"), 2200);
+    }
 
-</div>
+    function updateButton() {
+      acceptBtn.disabled = !agree.checked;
+    }
 
-<div class="card hidden" id="wifiSection">
+    agree.addEventListener("change", updateButton);
 
-<h3>Connect to WiFi</h3>
+    robot.addEventListener("change", () => {
+      if (robot.checked) {
+        showToast("🚨 Robot detected. Please consume one nugget to prove humanity.");
+      }
+    });
 
-<div>
-Network
-<div class="password">ChickenNuggetShack</div>
-</div>
+    declineBtn.addEventListener("click", () => {
+      alert(
+        "You have declined access.\n\n" +
+        "Please enjoy:\n" +
+        "• Your own mobile data\n" +
+        "• Slight inconvenience\n" +
+        "• Regret"
+      );
+    });
 
-<div style="margin-top:10px">
-Password
-<div class="password" id="passwordText">••••••••</div>
-</div>
+    copyBtn.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(WIFI_PASSWORD);
+        showToast("✅ Password copied.");
+      } catch (e) {
+        const tmp = document.createElement("textarea");
+        tmp.value = WIFI_PASSWORD;
+        document.body.appendChild(tmp);
+        tmp.select();
+        document.execCommand("copy");
+        tmp.remove();
+        showToast("✅ Password copied.");
+      }
+    });
 
-<button onclick="copyPassword()" class="secondary">
-Copy Password
-</button>
+    acceptBtn.addEventListener("click", () => {
+      passText.textContent = WIFI_PASSWORD;
+      revealArea.classList.remove("hidden");
+      showToast("🍗 Access granted. Scan the QR to join.");
+      setTimeout(() => {
+        revealArea.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 200);
+    });
 
-<div style="text-align:center;margin-top:20px">
-
-<a id="wifiJoinLink" class="qrLink">
-
-<img src="wifi-qr.png" class="qr">
-
-</a>
-
-</div>
-
-<div class="help">
-
-Tap the QR image to attempt automatic join.<br>
-If nothing happens:<br>
-• iPhone: press and hold the QR image<br>
-• Android: press and hold or use Google Lens
-
-</div>
-
-</div>
-
-</div>
-
-<script>
-
-const WIFI_SSID="ChickenNuggetShack"
-const WIFI_PASSWORD="CHANGE_ME"
-
-const agree=document.getElementById("agree")
-const acceptBtn=document.getElementById("acceptBtn")
-
-agree.addEventListener("change",()=>{
-acceptBtn.disabled=!agree.checked
-})
-
-function decline(){
-
-alert("You have declined WiFi access.\n\nEnjoy your mobile data.")
-
-}
-
-acceptBtn.onclick=function(){
-
-document.getElementById("wifiSection").classList.remove("hidden")
-document.getElementById("passwordText").textContent=WIFI_PASSWORD
-
-}
-
-function copyPassword(){
-
-navigator.clipboard.writeText(WIFI_PASSWORD)
-
-alert("Password copied")
-
-}
-
-const wifiJoinLink=document.getElementById("wifiJoinLink")
-
-wifiJoinLink.addEventListener("click",function(){
-
-const payload=`WIFI:T:WPA;S:${WIFI_SSID};P:${WIFI_PASSWORD};;`
-
-this.href=payload
-
-setTimeout(()=>{
-
-alert("If nothing opened, press and hold the QR image to scan it.")
-
-},400)
-
-})
-
-</script>
-
+    updateButton();
+  </script>
 </body>
 </html>
